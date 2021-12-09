@@ -1,4 +1,47 @@
+var state = "hello";
+const previousOperandTextElement = document.querySelector(`.previous-operand`)
+const currentOperandTextElement = document.querySelector(`.current-operand`)
 
+
+class Calculator {
+    constructor(previousOperandTextElement, currentOperandTextElement){
+        this.previousOperandTextElement = previousOperandTextElement
+        this.currentOperandTextElement = currentOperandTextElement
+        this.clear()
+    }
+
+    clear(){
+        this.currentOperand = ``
+        this.previousOperand = ``
+        this.operation = undefined
+
+    }
+
+    delete(){
+
+    }
+    appendNumber(number){
+        this.currentOperand = number
+
+    }
+
+    chooseOperation(operation){
+
+    }
+
+    compute(){
+
+    }
+
+    updateDisplay(){
+        this.currentOperandTextElement.innerText = this.currentOperand
+
+    }
+
+
+}
+
+const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
 
 function createRows(r,c, array){
     const rows = document.createElement("div")
@@ -7,8 +50,6 @@ function createRows(r,c, array){
         row.className = "boardRow";
         for(let j = 0; j < c; j++){
             var offset = i * c;
-
-            console.log(array[j+offset])
             if(array[j + offset] === "="){
                 let rectangle = `<button class='rectangle' onClick='onClick(this)'>${array[j + offset]}</button>`
                 row.insertAdjacentHTML("beforeend",rectangle);
@@ -31,6 +72,8 @@ function createNumberPad(){
 }
 
 function onClick(e){
+    calculator.appendNumber(e.textContent)
+    calculator.updateDisplay()
     console.log(e.textContent)
 }
 
@@ -53,7 +96,14 @@ function createOuterColumn(){
 
 }
 
+// function displayState(){
+//     const displayState = document.getElementById("display-state");
+//     displayState.insertAdjacentHTML("beforeend",`<h1>${state}</h1>`)
+//     console.log(state)
 
+// }
+
+// displayState()
 createTopRow()
 createNumberPad()
 createOuterColumn()

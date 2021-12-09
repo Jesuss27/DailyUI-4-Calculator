@@ -30,8 +30,9 @@ html{
 .math-container{
     height:391px;
     width:100%;
-
+    position:relative;
 }
+
 .key-pad{
     height:535px;
     width:100%;
@@ -88,4 +89,16 @@ html{
     font-family:"Poppins", sans-serif;
     font-size:60px;
     border:0.5px solid var(--gray);
+}
+.current-operand{
+    height:auto;
+    position:absolute;
+    font-size: 60px;
+    color:white;
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: right;
+    padding-right:20px;
+    bottom:20px;
 }
