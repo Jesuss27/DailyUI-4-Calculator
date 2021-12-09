@@ -30,7 +30,12 @@ html{
 .math-container{
     height:391px;
     width:100%;
-    position:relative;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding:20px;
+
 }
 
 .key-pad{
@@ -63,6 +68,7 @@ html{
     display:flex;
 }
 .top-row{
+    display:flex;
     border-radius:30px 30px 0px 0px;
     border:0.5px solid var(--gray);
     overflow: hidden;
@@ -75,10 +81,23 @@ html{
 }
 
 .outer-column{
+    display:flex;
+    flex-direction: column;
+    height:auto;
     position:absolute;
     top:107px;
     right:0;
+}
 
+.outer-column .square{
+    width:107px;
+    height:107px;
+    background:transparent;
+    color:white;
+    border:1px solid black;
+    font-family:"Poppins", sans-serif;
+    font-size:25px;
+    border:0.5px solid var(--gray);
 }
 .rectangle{
     width:107px;
@@ -91,14 +110,25 @@ html{
     border:0.5px solid var(--gray);
 }
 .current-operand{
-    height:auto;
-    position:absolute;
+    min-height:60px;
     font-size: 60px;
     color:white;
     width:100%;
     display:flex;
-    align-items: center;
+    align-items:flex-end;
     justify-content: right;
-    padding-right:20px;
-    bottom:20px;
+    word-wrap:break-word;
+    word-break: break-all;
+    margin-top:30px;
+}
+.previous-operand{
+    width:20px;
+    font-size: 32px;
+    color:white;
+    width:100%;
+    display:flex;
+    align-items:flex-end;
+    justify-content: right;
+    word-wrap:break-word;
+    word-break: break-all;
 }
